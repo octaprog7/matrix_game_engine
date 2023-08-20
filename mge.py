@@ -17,15 +17,15 @@ class MetrixGameEngine:
         if len(self._figures) not in (3, 5):
             raise ValueError(f"Invalid count figures: {len(self._figures)}")
 
-    def _is_it_a_loser(self, key, key_for_check) -> bool:
-        """Является ли фигура с ключом key_for_check по отношению к фигуре key, проигравшей?
-        Is the figure with key key_for_check against the key figure losing?"""
-        return key_for_check in self._figures[key]
-
     def make_losers(self, key, keys_of_the_losers: Iterable):
         """Добавляет в словарь _figures список ключей фигур, которые проигрывают фигуре с ключем key, как значение
         Adds to the _figures dictionary a list of figure keys that play the figure with key key as value"""
         self._figures[key] = [_key for _key in keys_of_the_losers]
+
+    def _is_it_a_loser(self, key, key_for_check) -> bool:
+        """Является ли фигура с ключом key_for_check по отношению к фигуре key, проигравшей?
+        Is the figure with key key_for_check against the key figure losing?"""
+        return key_for_check in self._figures[key]
 
     def figures(self):
         """Функция-генератор. Возвращает ключи фигур.

@@ -9,7 +9,7 @@ if __name__ == '__main__':
     mge.make_losers(figures[0], (figures[1],))     # для камня, проигравшим является ножницы
     mge.make_losers(figures[1], (figures[2],))     # для ножниц, проигравшим является бумага
     mge.make_losers(figures[2], (figures[0],))     # для бумаги, проигравшим является камень
-    print("-----Фигуры-----")
+    print("-----Фигуры|Figures-----")
     for item in mge.figures():
         print(item)
     print(16 * "-")
